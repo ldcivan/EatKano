@@ -1,25 +1,26 @@
 <p align="center">
-  <a href="https://xingye.me/game/eatkano"><img src="https://github.com/arcxingye/EatKano/blob/main/static/image/ClickBefore.png?raw=true" width="100" height="100" alt="EatKano"></a>
+  <a href="http://www.pro-ivan.cn/game/stamping_xing/"><img src="http://www.pro-ivan.cn/game/stamping_xing/static/image/ClickBefore.png" width="100" height="125" alt="EatKano"></a>
 </p>
 <div align="center">
 
 # EatKano
 
-_🦌 网页小游戏 🥛_
+_🐱 醒爷戳戳乐 🥛_
 
 </div>
 
 
 ## 简介
 
-小游戏：吃掉小鹿乃
+<h3>醒爷戳戳乐——改编自吃掉小鹿乃</h3>
 
-[鹿乃b站](https://space.bilibili.com/316381099)
+[醒爷b站](https://space.bilibili.com/2100679)
 |
-[线上版本](https://xingye.me/game/eatkano/index.php)
+[线上版本](http://www.pro-ivan.cn/game/stamping_xing/)
 |
-[Github Pages](https://arcxingye.github.io/EatKano/index.html)
+[Original Github Pages](https://arcxingye.github.io/EatKano/index.html)
 
+以下内容是来自原作者的保留内容
 ## 可选功能
 
 简易排行榜(日/周/月) 不推荐使用
