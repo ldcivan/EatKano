@@ -2,8 +2,8 @@
 <html lang="zh">
 
 <head>
-  <title>吃掉小鹿乃-排行榜</title>
-  <meta item="description" content="来看神仙" />
+  <title>醒爷戳戳乐-排行榜</title>
+  <!--<meta item="description" content="来看神仙" />-->
   <meta charset="utf-8" />
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -43,14 +43,13 @@
     <a href="?lbtype=day<?php echo $CurrentUser ? "&name=" . $CurrentUser : "" ?>"><button type="button" class="btn btn-outline-secondary btn-sm">日榜</button></a>
     <a href="?lbtype=week<?php echo $CurrentUser ? "&name=" . $CurrentUser : "" ?>"><button type="button" class="btn btn-outline-secondary btn-sm">周榜</button></a>
     <a href="?lbtype=month<?php echo $CurrentUser ? "&name=" . $CurrentUser : "" ?>"><button type="button" class="btn btn-outline-secondary btn-sm">月榜</button></a>
-    <br/>tips:大家不要作弊哦~ฅ'ω'ฅ♪
   </div>
   <div class="list-group">
     <?php
     $rank = $offset;
     $filtercond = " ORDER BY score DESC limit ?,?;";
     $data_sql = "SELECT * FROM " . $ranking . " where " . $cond . $filtercond;
-    if ($data_stmt = $link->prepare($data_sql)) {
+    if ($data_stmt = $link -> prepare($data_sql)) {
       $data_stmt->bind_param("ii", $offset, $num);
       $data_stmt->execute();
       $data_stmt->store_result();
@@ -59,7 +58,7 @@
         $rank += 1;
         echo "<a href='#' class='list-group-item list-group-item-action'><div class='d-flex w-100 justify-content-between'>
             <h5 class='mb-1'>" . $rank . "位   " . $name . "</h5><small>" . $time . "</small></div>
-            <p class='mb-1'>SCORE: " . $score . " TRY: " . $attempts . " -" . $system . " -" . $area . "</p>
+            <p class='mb-1'>分数: " . $score . "&nbsp&nbsp尝试次数: " . $attempts . "&nbsp&nbsp于 " . $system . " - " . $area . "</p>
             <small>" . ($message ? $message : "这个人很懒什么也没留下") . "</small></a>";
       }
       $data_stmt->close();
@@ -94,7 +93,7 @@
         <?php
         if ($CurrentUser) {
           //查询当前名字历史记录
-          $score_sql = "SELECT `score`,`time`,`attempts` FROM " . $ranking . " where name=?";
+          $score_sql = "SELECT score,time,attempts FROM " . $ranking . " where name=?";
           $score_stmt = $link->prepare($score_sql);
           $score_stmt->bind_param("s", $CurrentUser);
           $score_stmt->bind_result($score, $time, $attempts);

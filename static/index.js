@@ -143,6 +143,38 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         });
         gameRestart();
     }
+    
+    w.gameInitMute = function gameInitMute() {
+        createjs.Sound.registerSound({
+            src: "./static/music/mute.mp3",
+            id: "err"
+        });
+        createjs.Sound.registerSound({
+            src: "./static/music/mute.mp3",
+            id: "end"
+        });
+        createjs.Sound.registerSound({
+            src: "./static/music/mute.mp3",
+            id: "tap"
+        });
+        gameRestart();
+    };
+    
+    w.gameInitUnmute = function gameInitUnmute() {
+        createjs.Sound.registerSound({
+            src: "./static/music/err.mp3",
+            id: "err"
+        });
+        createjs.Sound.registerSound({
+            src: "./static/music/end.mp3",
+            id: "end"
+        });
+        createjs.Sound.registerSound({
+            src: "./static/music/tap.mp3",
+            id: "tap"
+        });
+        gameRestart();
+    };
 
     function gameRestart() {
         _gameBBList = [];
@@ -224,7 +256,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function SubmitResults() {
-        let system = "其他操作系统";
+        let system = "不明魔导工具";
         let area = "异世界";
         if ($("#username").val() && _gameSettingNum === 20) {
             const systems = [
@@ -441,9 +473,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             SubmitResults();
         }
 
-        if (cps <= 5) return '试着好好练一下？';
-        if (cps <= 8) return 'TCL';
-        if (cps <= 10)  return 'TQL';
+        if (cps <= 4) return '菜';
+        if (cps <= 7) return '/ _ \\';
+        if (cps <= 10)  return '( ￣ v￣)👍';
         if (cps <= 15) return '您';
         return '人？';
     }
@@ -513,13 +545,13 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.save_cookie = function() {
-        const settings = ['username', 'message', 'keyboard', 'title', 'gameTime'];
+        const settings = ['username', 'message', 'keyboard', 'gameTime'];
         for (let s of settings) {
             cookie(s, $(`#${s}`).val().toString(), 100);
         }
         initSetting();
     }
-
+    
     function isnull(val) {
         let str = val.replace(/(^\s*)|(\s*$)/g, '');
         return str === '' || str === undefined || str == null;
